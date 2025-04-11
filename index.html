@@ -17,9 +17,10 @@
                 <h4>Coffee <Span>Ruang & Rasa.</Span></h4>
             </div>
             <div class="navbar-nav sign">
-                <a class="nav-link" href="#">SIGN IN</a>
+                <a class="nav-link" onclick="showLogin()" >SIGN IN</a>
                 <div class="cart mt-2">
                     <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-notif">3</span>
                 </div>
             </div>
             <!-- ms-auto pada navbar toggler -->
@@ -28,10 +29,10 @@
             </button>
             <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link nav-home" href="#home">HOME</a>
-                    <a class="nav-link nav-store" href="#store">STORE</a>
+                    <a class="nav-link nav-home" href="#home" onclick="showAllSection()">HOME</a>
+                    <a class="nav-link nav-store" href="#store" onclick="showAllSection()">STORE</a>
                     <a class="nav-link nav-contact" href="#contact">CONTACT</a>
-                    <a class="nav-link nav-about" href="#about">ABOUT</a>
+                    <a class="nav-link nav-about" href="#about" onclick="showAllSection()">ABOUT</a>
                 </div>
             </div>
         </div>
@@ -396,7 +397,7 @@
     </footer>
 
     <!-- diluar halaman utaman -->     
-    <div class="login-container">
+    <section class="login-container d-none">
         <i class="fa-solid fa-mug-hot"></i>
         <h2>User Login</h2>
         <form>
@@ -406,15 +407,56 @@
             </div>
             <div class="input-group">
                 <label for="password"><i class="fa-solid fa-lock"></i></label>
-                <input type="password" id="password" placeholder="Enter your password">
-                <i class="fa-solid fa-eye"></i>
+                <!-- <input type="password" id="password" placeholder="Enter your password">
+                <i class="fa-solid fa-eye-slash eye"></i> -->
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Enter your password">
+                    <i class="fa-solid fa-eye-slash eye" onclick="toogleShowPassword(this)"></i>
+                </div>
             </div>
             <div class="remember-forgot">
                 <a href="#">Forgot Password?</a>
             </div>
-            <button type="submit" class="login-button">Login</button>
+            <button type="submit" class="login-button scroll-animation">Login</button>
+            <div class="daftar">
+                <p>Don't have an account?<a href="#" onclick="showDaftar()"> Sign up here !</a></p>
+            </div>
         </form>
-    </div>
+    </section>
+
+    <section class="daftar-container d-none">
+        <i class="fa-solid fa-mug-hot"></i>
+        <h2>User Daftar</h2>
+        <form>
+            <div class="input-group">
+                <label for="daftar-username"><i class="fa-solid fa-user"></i></label>
+                <input type="text" id="daftar-username" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="email"><i class="fa-solid fa-envelope"></i></label>
+                <input type="text" id="email" placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="daftar-password"><i class="fa-solid fa-lock"></i></label>
+                <div class="password-wrapper">
+                    <input type="password" id="daftar-password" placeholder="Enter your password">
+                    <i class="fa-solid fa-eye-slash eye" onclick="toogleShowPassword(this)"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="re-password"><i class="fa-solid fa-lock"></i></label>
+                <div class="password-wrapper">
+                    <input type="password" id="re-password" placeholder="Enter your re password">
+                    <i class="fa-solid fa-eye-slash eye" onclick="toogleShowPassword(this)"></i>
+                </div>
+            </div>
+            <button type="submit" class="daftar-button scroll-animation">Daftar</button>
+            <div class="login">
+                <a href="#" onclick="showLogin()"> Back to Login</a>
+            </div>
+        </form>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/76b33c1416.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>

@@ -78,6 +78,10 @@ body {
     margin-left: 40rem;
 }
 
+.judul h4 {
+    font-size: 35px;
+}
+
 .sign {
     color: #fff !important;
     font-size: 1.4rem;
@@ -97,6 +101,19 @@ body {
     color: #fff !important;
     /* margin-left: 1.5rem; */
     margin-right: 3rem;
+    position: relative;
+}
+
+.cart-notif {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
 }
 
 /* Home Start */
@@ -392,7 +409,7 @@ form {
 .input-group {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 5px;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 5px;
@@ -414,6 +431,7 @@ form {
     padding-left: 1rem;
     font-size: 1.4rem;
     color: #fff;
+    height: 30px;
 }
 
 input::placeholder,
@@ -451,6 +469,7 @@ textarea::placeholder {
 
 .message-group textarea {
     width: 100%;
+    height: 90px;
     border: none;
     outline: none;
     padding-left: 3rem;
@@ -688,7 +707,7 @@ footer .credit a {
 
 /* diluar halaman utaman */
 /* login */
-.login-container {
+.login-container, .daftar-container{
     display: flexbox;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
     padding: 20px;
@@ -697,25 +716,30 @@ footer .credit a {
     text-align: center;
     width: 30rem;
     position: relative;
-    top: 55%;
+    top: 25rem;
     left: 50%;
     transform: translate(-50%, -50%);
+    color: #fff;
 }
 
-.login-container .fa-mug-hot {
+.form-background {
+    background: linear-gradient(to bottom, #000 50%, rgb(202, 165, 45));
+    height: 100vh;
+}
+
+.login-container .fa-mug-hot, .daftar-container .fa-mug-hot {
     font-size: 5rem;
     color: #fff;
 }
 
-.login-container h2 {
+.login-container h2, .daftar-container h2 {
     margin-top: 1rem;
     margin-bottom: 20px;
     font-size: 2rem;
     color: #fff;
 }
 .input-group {
-    margin-bottom: 15px;
-    text-align: left;
+    margin-bottom: 0;
 }
 .input-group label {
     display: block;
@@ -727,6 +751,23 @@ footer .credit a {
     /* border: 1px solid #ccc; */
     border-radius: 5px;
 }
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; 
+}
+
+.password-wrapper .eye {
+    position: absolute;
+    left: 22.5rem;
+    /* right: 10px; */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 .remember-forgot {
     text-align: right;
     font-size: 14px;
@@ -734,24 +775,39 @@ footer .credit a {
 }
 
 .remember-forgot a {
-    color: #fff;
+    color: rgb(212, 175, 55);
     font-size: 1rem;
+    text-decoration: none;
 }
 
-.login-button {
+.login-button, .daftar-button {
     width: 100%;
-    padding: 10px;
+    height: 3rem;
+    /* padding: 10px; */
     border-radius: 5px;
     cursor: pointer;
     color: #fff;
     background: none;
     border: 2px solid #fff;
+    font-size: 1.2rem;
 }
-.login-button:hover {
+.login-button:hover, .daftar-button:hover {
     border: 3px solid rgb(212, 175, 55);
     color: rgb(212, 175, 55);
     font-weight: bold;
 }
+.daftar a, .login a {
+    color: rgb(212, 175, 55);
+    height: 200;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.daftar a:hover, .remember-forgot a:hover, .login a:hover {
+    color: #fff;
+}
+
+
 
 /* animasi section  */
 .hero h1, 
@@ -934,7 +990,7 @@ footer .credit a {
         justify-content: center;
         text-align: center;
         position: absolute;
-        margin-left: 50%;
+        margin-left: 60%;
         margin-right: 50%;
         transform: translateX(-50%);
         background-color: transparent;
@@ -954,7 +1010,7 @@ footer .credit a {
 
     .sign .cart {
         font-size: 1.4rem;
-        margin-left: 5rem;
+        margin-left: 8rem;
         margin-top: 0;
     }
 
@@ -1090,9 +1146,12 @@ footer .credit a {
         margin-top: 5px; 
     }
 
-    
     .line-end {
         height: 90px;
+    }
+
+    .login-container, .daftar-container {
+        margin-top: 10rem;
     }
 }
 
@@ -1150,6 +1209,18 @@ footer .credit a {
 
     .navbar-collapse .navbar-nav .nav-link{
         width: 100%;
+    }
+
+    .cart-notif {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: red;
+        color: white;
+        font-size: 8px;
+        padding: 2px 6px;
+        border-radius: 50%;
+        font-weight: bold;
     }
 
     .content h1, .content h2 {
@@ -1350,7 +1421,7 @@ footer .credit a {
         padding-top: 8rem;
         padding-left: 2rem;
         padding-right: 2rem;
-        min-height: 60vh;
+        height: 60vh;
     }
 
     .about-judul h2 span, .about-visi span {
