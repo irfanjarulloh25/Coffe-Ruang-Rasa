@@ -209,7 +209,7 @@ body {
 
 .section-store .store-judul {
     color: #fff;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .section-store .store-judul h2 {
@@ -228,18 +228,18 @@ body {
     text-shadow: 2px 2px 5px rgba(1, 1, 1, 0.9);
 } */
 
-/* .container-search {
+.container-search {
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
-/* .search-form {
+.search-form {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: 0;
     margin-bottom: 2rem;
     height: 50px;
     width: 100%;
@@ -247,36 +247,40 @@ body {
 }
 
 .search-input {
-    font-size: 2rem;
+    height: 3rem;
+    font-size: 1.5rem;
     width: 100%;
-    padding-left: 10px;
+    padding-left: 15px;
     padding-right: 50px;
     border: 1px solid #ccc;
     border-radius: 20px; 
     outline: none;
 }
 
-.search-label {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
+.search-input::placeholder {
     color: #888;
+    font-weight: 800;
 }
 
 .icon-search {
     font-size: 2rem;
     color: #888;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .search-input:focus {
-    color: rgb(212, 175, 55);; 
+    color: rgb(212, 175, 55); 
     background-color: #f9f9f9; 
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .search-input:focus + .search-label .icon-search {
     color: rgb(212, 175, 55);
-} */
+}
 
 .store .card {
     background-color: #0a0a0a;
@@ -1332,6 +1336,11 @@ footer .credit a {
         text-shadow: 2px 2px 5px rgba(1, 1, 1, 0.9);
     }
 
+    .search-form {
+        width: 70%;
+        height: 30px;
+    }
+
    .card {
         width: 40%;
         padding-left: 1rem;
@@ -1508,4 +1517,45 @@ footer .credit a {
         text-shadow: 3px 3px 6px rgba(2, 2, 2, 1);
     }
 
+    .login-container, .daftar-container {
+        width: 20rem;
+        top: 23rem;
+    }
+
+    .login-container .fa-mug-hot, .daftar-container .fa-mug-hot {
+        font-size: 3rem;
+    }
+
+    .login-container h2, .daftar-container h2 {
+        font-size: 1.rem;
+    }
+
+    .input-group label {
+        font-size: 1.1rem;
+    }
+
+    .input-group input::placeholder {
+        font-size: 1rem;
+    }
+    .password-wrapper input {
+        padding-left: 15px;
+        padding-top: 0;
+    }
+
+    .password-wrapper .eye  {
+        left: 13rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 378px) {
+    .about-deskripsi h2 {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .about-deskripsi h2 {
+        font-size: 14px;
+    }
 }

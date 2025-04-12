@@ -1,0 +1,143 @@
+[
+    {
+      "nama": "Espresso",
+      "deskripsi": "Kopi hitam pekat dengan rasa kuat, diseduh tanpa campuran.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 18000,
+      "gambar": "img/kopi1.jpg"
+    },
+    {
+      "nama": "Americano",
+      "deskripsi": "Espresso yang dicampur dengan air panas, menghasilkan rasa kopi yang lebih ringan.",
+      "hargaNormal": 50000,
+      "hargaDiskon": 20000,
+      "gambar": "img/kopi2.jpg"
+    },
+    {
+      "nama": "Cappuccino",
+      "deskripsi": "Perpaduan espresso, susu panas, dan busa susu di atasnya.",
+      "hargaNormal": 50000,
+      "hargaDiskon": 25000,
+      "gambar": "img/kopi3.jpg"
+    },
+    {
+      "nama": "Latte",
+      "deskripsi": "Espresso dengan banyak susu panas, lebih creamy dari cappuccino.",
+      "hargaNormal": 60000,
+      "hargaDiskon": 26000,
+      "gambar": "img/kopi4.jpg"
+    },
+    {
+      "nama": "Mocha",
+      "deskripsi": "Kombinasi antara kopi, cokelat, dan susu panas.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 28000,
+      "gambar": "img/kopi5.jpg"
+    },
+    {
+      "nama": "Macchiato",
+      "deskripsi": "Espresso dengan sedikit susu di atasnya.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 22000,
+      "gambar": "img/kopi6.jpg"
+    },
+    {
+      "nama": "Flat White",
+      "deskripsi": "Espresso dengan microfoam susu halus, teksturnya creamy.",
+      "hargaNormal": 50000,
+      "hargaDiskon": 27000,
+      "gambar": "img/kopi7.jpg"
+    },
+    {
+      "nama": "Affogato",
+      "deskripsi": "Es krim vanila yang disiram dengan espresso panas.",
+      "hargaNormal": 60000,
+      "hargaDiskon": 30000,
+      "gambar": "img/kopi8.jpg"
+    },
+    {
+      "nama": "Café au Lait",
+      "deskripsi": "Kopi seduh dengan susu panas dalam jumlah seimbang.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 25000,
+      "gambar": "img/kopi9.jpg"
+    },
+    {
+      "nama": "Cold Brew",
+      "deskripsi": "Kopi diseduh dengan air dingin selama 12 jam, lebih halus dan ringan.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 30000,
+      "gambar": "img/kopi10.jpg"
+    },
+    {
+      "nama": "Nitro Cold Brew",
+      "deskripsi": "Cold brew yang dimasukkan nitrogen untuk rasa creamy dan berbusa.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 35000,
+      "gambar": "img/kopi11.jpg"
+    },
+    {
+      "nama": "Iced Americano",
+      "deskripsi": "Americano dengan es batu, menyegarkan dan ringan.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 23000,
+      "gambar": "img/kopi12.jpg"
+    },
+    {
+      "nama": "Iced Latte",
+      "deskripsi": "Kopi espresso dengan susu dingin dan es batu.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 27000,
+      "gambar": "img/kopi13.jpg"
+    },
+    {
+      "nama": "Caramel Macchiato",
+      "deskripsi": "Latte dengan sirup karamel dan busa susu, manis dan creamy.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 32000,
+      "gambar": "img/kopi14.jpg"
+    },
+    {
+      "nama": "Vanilla Latte",
+      "deskripsi": "Latte dengan tambahan sirup vanila, rasa manis dan lembut.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 31000,
+      "gambar": "img/kopi15.jpg"
+    },
+    {
+      "nama": "Hazelnut Latte",
+      "deskripsi": "Latte dengan sentuhan rasa kacang hazelnut.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 31000,
+      "gambar": "img/kopi16.jpg"
+    },
+    {
+      "nama": "Irish Coffee",
+      "deskripsi": "Kopi hitam dengan campuran wiski Irlandia dan krim.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 40000,
+      "gambar": "img/kopi1.jpg"
+    },
+    {
+      "nama": "Kopi Tubruk",
+      "deskripsi": "Kopi khas Indonesia dengan ampas, diseduh langsung tanpa saringan.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 15000,
+      "gambar": "img/kopi2.jpg"
+    },
+    {
+      "nama": "Kopi Susu Gula Aren",
+      "deskripsi": "Espresso, susu, dan gula aren cair, sangat populer di Indonesia.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 25000,
+      "gambar": "img/kopi3.jpg"
+    },
+    {
+      "nama": "Kopi Vietnam Drip",
+      "deskripsi": "Kopi Vietnam yang diseduh perlahan dan disajikan dengan susu kental manis.",
+      "hargaNormal": 55000,
+      "hargaDiskon": 28000,
+      "gambar": "img/kopi4.jpg"
+    }
+  ]
+  

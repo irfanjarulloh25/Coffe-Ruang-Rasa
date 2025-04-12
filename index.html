@@ -17,7 +17,7 @@
                 <h4>Coffee <Span>Ruang & Rasa.</Span></h4>
             </div>
             <div class="navbar-nav sign">
-                <a class="nav-link" onclick="showLogin()" >SIGN IN</a>
+                <a class="nav-link" onclick="showLogin()" href="#Sign">SIGN IN</a>
                 <div class="cart mt-2">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-notif">3</span>
@@ -31,7 +31,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link nav-home" href="#home" onclick="showAllSection()">HOME</a>
                     <a class="nav-link nav-store" href="#store" onclick="showAllSection()">STORE</a>
-                    <a class="nav-link nav-contact" href="#contact">CONTACT</a>
+                    <a class="nav-link nav-contact" href="#contact" onclick="showAllSection()">CONTACT</a>
                     <a class="nav-link nav-about" href="#about" onclick="showAllSection()">ABOUT</a>
                 </div>
             </div>
@@ -61,9 +61,15 @@
         <main class="store-judul scroll-animation">
             <h2>Rasa kopi terbaikmu. <span>Pesan Sekarang!</span></h2>
         </main>
+        <main class="container-search d-none">
+            <div class="search-form">
+                <input type="search" name="Search" id="search" class="search-input" placeholder="search">
+                <i class="fa-solid fa-magnifying-glass icon-search"></i>
+            </div>
+        </main>
         <main class="container store">
-            <div class="d-flex row g-1 g-md-5">
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
+            <div class="d-flex row g-1 g-md-5" id="product-container">
+                <!-- <div class="col-lg-3 col-md-4 col-6 scroll-animation">
                     <button class="card w-100 shadow-sm">
                         <img src="img/kopi1.jpg" class="card-img-top" alt="Espresso">
                         <div class="card-body text-center">
@@ -84,161 +90,7 @@
                             </div>
                         </div>
                     </button>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
-                    <button class="card w-100 shadow-sm">
-                        <img src="img/kopi2.jpg" class="card-img-top" alt="Espresso">
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold">- AMERICANO -</p>
-                            <div class="product-icons">
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="#" class="item-detail-button"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="product-stars text-warning">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="product-price mt-2">
-                                <span>IDR 55K</span> IDR 30K
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
-                    <button class="card w-100 shadow-sm">
-                        <img src="img/kopi3.jpg" class="card-img-top" alt="Espresso">
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold">- ESPRESSO -</p>
-                            <div class="product-icons">
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="#" class="item-detail-button"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="product-stars text-warning">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="product-price mt-2">
-                                <span>IDR 55K</span> IDR 30K
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
-                    <button class="card w-100 shadow-sm">
-                        <img src="img/kopi4.jpg" class="card-img-top" alt="Espresso">
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold">- ESPRESSO -</p>
-                            <div class="product-icons">
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="#" class="item-detail-button"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="product-stars text-warning">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="product-price mt-2">
-                                <span>IDR 55K</span> IDR 30K
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
-                    <button class="card w-100 shadow-sm">
-                        <img src="img/kopi5.jpg" class="card-img-top" alt="Espresso">
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold">- ESPRESSO -</p>
-                            <div class="product-icons">
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="#" class="item-detail-button"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="product-stars text-warning">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="product-price mt-2">
-                                <span>IDR 55K</span> IDR 30K
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
-                    <button class="card w-100 shadow-sm">
-                        <img src="img/kopi6.jpg" class="card-img-top" alt="Espresso">
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold">- ESPRESSO -</p>
-                            <div class="product-icons">
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="#" class="item-detail-button"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="product-stars text-warning">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="product-price mt-2">
-                                <span>IDR 55K</span> IDR 30K
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
-                    <button class="card w-100 shadow-sm">
-                        <img src="img/kopi7.jpg" class="card-img-top" alt="Espresso">
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold">- ESPRESSO -</p>
-                            <div class="product-icons">
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="#" class="item-detail-button"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="product-stars text-warning">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="product-price mt-2">
-                                <span>IDR 55K</span> IDR 30K
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6 scroll-animation">
-                    <button class="card w-100 shadow-sm">
-                        <img src="img/kopi8.jpg" class="card-img-top" alt="Espresso">
-                        <div class="card-body text-center">
-                            <p class="card-text fw-bold">- ESPRESSO -</p>
-                            <div class="product-icons">
-                                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="#" class="item-detail-button"><i class="fa-solid fa-eye"></i></a>
-                            </div>
-                            <div class="product-stars text-warning">
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="product-price mt-2">
-                                <span>IDR 55K</span> IDR 30K
-                            </div>
-                        </div>
-                    </button>
-                </div>
+                </div> -->
             </div> 
             <button type="submit" class="btn-lihat-product scroll-animation">LIHAT SEMUA PRODUCT</button>
         </main>
@@ -419,7 +271,7 @@
             </div>
             <button type="submit" class="login-button scroll-animation">Login</button>
             <div class="daftar">
-                <p>Don't have an account?<a href="#" onclick="showDaftar()"> Sign up here !</a></p>
+                <p>Don't have an account?<a href="#Daftar" onclick="showDaftar()"> Sign up here !</a></p>
             </div>
         </form>
     </section>
