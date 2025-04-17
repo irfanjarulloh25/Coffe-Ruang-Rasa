@@ -147,10 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         jumlahCart.textContent = cartItemsMap[product.id].jumlah;
                 }
                 updateCartNotif();
-                if (Object.keys(cartItemsMap).length === 0) {
-                    cartSection.classList.remove("d-none");
-                    cartSection.innerHTML = "<p class='text-center'>Keranjang kosong</p>";
-                }
             })
 
             updateCartNotif();
