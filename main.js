@@ -9,7 +9,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.2 });
 
-const elementsToObserve = document.querySelectorAll(".hero, .section-store, .scroll-animation, .contact-form, .input-group, .about-judul h2, .about-deskripsi h2, .line-head i, .about-visi, .login-button, .modal-content img, .modal-content .product-content");
+const elementsToObserve = document.querySelectorAll(".hero, .section-store, .scroll-animation, .contact-form, .input-group, .about-judul h2, .about-deskripsi h2, .line-head i, .about-visi, .login-button, .modal-content img, .modal-content .product-content, .container-search ");
 
 elementsToObserve.forEach((element) => {
     observer.observe(element);
@@ -96,11 +96,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
+
+        let cartItemsMap = {};
         function renderCartShopping (product){
+            if (cartItemsMap[product.id]) return;
             const cartItem = document.createElement("div");
             cartItem.classList.add("cart-item");
             cartItem.innerHTML = `
-                <img src="${product.gambar}" alt="${product.nama}"</>
+                <img src="${product.gambar}" alt="${product.nama}"/>
                 <div class="item-detail">
                     <h3>${product.nama}</h3>
                     <div class="item-price">IDR ${product.hargaDiskon.toLocaleString().replace(/,/g, '.')}</div>
@@ -111,8 +114,52 @@ document.addEventListener("DOMContentLoaded", function () {
                     <button class="tambah-item"><i class="fa-solid fa-plus"></i></button>
                 </div>
             `;
+
             cartSection.classList.remove("d-none");
             cartSection.appendChild(cartItem);
+
+            cartItemsMap[product.id] = {
+                element: cartItem,
+                jumlah: 1
+            }
+            const btnKurang = cartItem.querySelector(".kurang-item");
+            const btnTambah = cartItem.querySelector(".tambah-item");
+            const jumlahCart = cartItem.querySelector(".jumlah-cart");
+
+            btnTambah.addEventListener("click", () => {
+                cartItemsMap[product.id].jumlah++;
+                jumlahCart.textContent = cartItemsMap[product.id].jumlah;
+                updateCartNotif();
+            });
+            btnKurang.addEventListener("click", () => {
+                // if(cartItemsMap[product.id].jumlah > 1) {
+                //     cartItemsMap[product.id].jumlah--;
+                //     jumlahCart.textContent = cartItemsMap[product.id].jumlah;
+                // } else {
+                //     cartItem.remove();
+                //     delete cartItemsMap[product.id];
+                // }
+                if (cartItemsMap[product.id].jumlah <= 1) {
+                    cartItem.remove();
+                    delete cartItemsMap[product.id];
+                    } else {
+                        cartItemsMap[product.id].jumlah--;
+                        jumlahCart.textContent = cartItemsMap[product.id].jumlah;
+                }
+                updateCartNotif();
+                if (Object.keys(cartItemsMap).length === 0) {
+                    cartSection.classList.remove("d-none");
+                    cartSection.innerHTML = "<p class='text-center'>Keranjang kosong</p>";
+                }
+            })
+
+            updateCartNotif();
+        }
+
+        function updateCartNotif() {
+            const cartNotif = document.querySelector(".cart-notif");
+            const totalJenisItem = Object.keys(cartItemsMap).length;
+            cartNotif.textContent = totalJenisItem;
         }
 
         document.addEventListener("click", function (e) {
