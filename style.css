@@ -235,14 +235,6 @@ body {
     flex-direction: column;
 }
 
-.container-search p {
-    color: #fff;
-}
-
-.container-search p span {
-    color: rgb(232, 195, 75);
-}
-
 .search-form {
     position: relative;
     display: flex;
@@ -1033,6 +1025,121 @@ footer .credit a {
     color: rgba(0, 0, 0, 0.7);
 }
 
+
+/* checkout */
+.checkout-container {
+    height: 100vh;
+    display: flexbox;
+    text-align: center;
+    color: #fff;
+}
+
+.checkout-head h2 {
+    padding-top: 8rem;
+}
+
+.checkout-item {
+    border-bottom: 1px dashed #fff;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.checkout-item .img-thumbnail {
+    width: 60px; 
+    height: 60px; 
+    object-fit: cover;
+}
+
+.item-info {
+    width: 18rem;
+    margin-left: 1rem;
+}
+
+.item-actions {
+    width: 18rem;
+}
+
+.item-harga {
+    display: flex;
+    justify-content: flex-end;
+    width: 8rem;
+    font-size: 1.1rem;
+}
+
+.item-qty {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-qty .btn {
+    display: flex;
+    font-size: 1rem;
+    width: 2rem;
+    justify-content: center;
+    align-items: center;
+    border-color: #fff;
+}
+
+.total-qty {
+    font-size: 1.2rem;
+}
+
+.item-qty .edit-order {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.item-qty .btn i {
+    color: #fff;
+}
+
+.item-total-price {
+    font-size: 1.1rem;
+}
+
+.total-price {
+    display: flex;
+    justify-content: flex-end;
+    width: 7rem;
+}
+
+.form-check {
+    height: 3rem;
+}
+
+.logo-input {
+    width: 120px;
+    height: 2rem;
+}
+
+.form-check-label img {
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    padding-top: 5px;
+}
+
+.form-check-label p {
+    font-size: 1.2rem;
+    padding-top: 5px;
+    margin-left: 2rem;
+}
+
+.summary-details {
+    font-size: 1.1rem;
+}
+
+.payment-methods .btn {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.item-qty .btn i:hover, .item-qty .btn:hover, .payment-methods .btn:hover, .item-qty a:hover{
+    color: rgb(212, 175, 55);
+    border-color: rgb(212, 175, 55);
+}
 
 
 /* animasi section  */

@@ -62,9 +62,8 @@
             <h2>Rasa kopi terbaikmu. <span>Pesan Sekarang!</span></h2>
         </main>
         <main class="container-search d-none scroll-animation">
-            <p>Pesan tanpa antri. <span>Tunggu dimeja Mu !</span></p>
             <div class="search-form">
-                <input type="search" name="Search" id="search" class="search-input" placeholder="search">
+                <input type="search" id="search-input" name="Search" class="search-input" placeholder="Cari produk...">
                 <i class="fa-solid fa-magnifying-glass icon-search"></i>
             </div>
         </main>
@@ -326,27 +325,96 @@
                     <i class="fa-regular fa-star"></i>
                 </div>
                 <div class="product-price"></div>
-                <button><i class="fa-solid fa-cart-shopping"></i><span> Add to Cart</span></a=<button></button>
+                <button id="add-to-cart-button" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i><span> Add to Cart</span></a=<button></button>
               </div>
             </div>
         </div>
     </section>
 
     <section class="shopping-cart d-none" id="cart-section">
-        <!-- <div class="cart-item">
-            <img src="img/kopi10.jpg" alt="Product 1">
-            <div class="item-detail">
-                <h3>Caramel Macchiato</h3>
-                <div class="item-price">IDR 30K</div>
-            </div>
-            <div class="cart-aksi">
-                <button class="kurang-iten"><i class="fa-solid fa-minus"></i></button>
-                <h5 class="jumlah-cart">10</h5>
-                <button class="tambah-item"><i class="fa-solid fa-plus"></i></button>
-            </div>
-        </div> -->
         <div class="cart-footer">
             <button type="submit" class="btn-checkout">CHECKOUT</button>
+        </div>
+    </section>
+
+    <section class="checkout-container container d-none">
+        <div class="text-center checkout-head">
+            <h2>Payment Cart</h2>
+        </div>
+        <div class="row checkout">
+            <div class="cart-section col-md-8">
+                <div class="checkout-items scroll-animation">
+                    <!-- <div class="checkout-item d-flex align-items-center">
+                        <img src="/img/kopi1.jpg" alt="Product" class="img-thumbnail ">
+                        <div class="item-info d-flex">
+                            <h5 class="">Nike Air Max 270</h5>
+                        </div>
+                        <div class="item-actions d-flex">
+                            <div class="item-harga me-3">
+                                <p class="me-2 mt-3">Rp.23123123</p>
+                            </div>
+                            <div class="item-qty">  
+                                <button class="btn ">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <span class="total-qty">1</span>
+                                <button class="btn">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                                <a href="#" class="edit-order text-decoration-underline"><i class="fa-solid fa-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="item-total-price d-flex ms-3">
+                            <div class="total-price-head">
+                                <p class="me-3 mt-3">Total :</p>
+                            </div>
+                            <div class="total-price">
+                                <p class="mt-3">Rp.23123123</p>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="payment-section col-md-4 mt-4 scroll-animation">
+                <div class="payment-methods p-4 border rounded">
+                    <h2>Payment</h2>
+            
+                    <div class="form-check my-2 d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="payment-method" id="cash" checked>
+                        <label class="form-check-label ms-3 mt-3 d-flex" for="cash">
+                            <div class="logo-input">
+                                <img src="./img/bri.png" alt="">
+                            </div>
+                            <p>BRI</p>
+                        </label>
+                    </div>
+                    <div class="form-check my-2 d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="payment-method" id="cash" checked>
+                        <label class="form-check-label ms-3 mt-3 d-flex" for="cash">
+                            <div class="logo-input">
+                                <img src="./img/bca.png" alt="">
+                            </div>
+                            <p>BCA</p>
+                        </label>
+                    </div>
+                    <div class="form-check my-2 d-flex align-items-center">
+                        <input class="form-check-input" type="radio" name="payment-method" id="cash" checked>
+                        <label class="form-check-label ms-3 mt-3 d-flex" for="cash">
+                            <div class="logo-input">
+                                <img src="./img/mandiri.png" alt="">
+                            </div>
+                            <p>MANDIRI</p>
+                        </label>
+                    </div>
+            
+                    <div class="summary-details mt-4">
+                        <div class="d-flex justify-content-between fw-bold border-top pt-2">
+                            <span>Total Harga</span><span class="grand-total"></span>
+                        </div>
+                    </div>
+                    <button class="pay-button btn w-100 mt-4">BAYAR</button>
+                </div>
+            </div>
         </div>
     </section>
 
