@@ -256,15 +256,26 @@ document.addEventListener("DOMContentLoaded", function () {
             const footer = document.querySelector("footer");
             if (btnCheckout) {
                 e.preventDefault();
-                sections.forEach(section => {
-                    if(!section.classList.contains("checkout-container")) {
-                        section.classList.add("d-none")
-                        footer.classList.add("d-none")
-                    } else {
-                        section.classList.remove("d-none")
-                    }
-                })
-                renderCheckout();
+                if (Object.keys(cartItemsMap).length === 0) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Keranjang Kosong!',
+                        text: 'Silakan pilih barang terlebih dahulu.',
+                        confirmButtonText: 'Oke'
+                    });
+                    document.querySelector("#store").scrollIntoView({ behavior: "smooth" });
+                } else {
+                    sections.forEach(section => {
+                        if (!section.classList.contains("checkout-container")) {
+                            section.classList.add("d-none");
+                            footer.classList.add("d-none")
+                        } else {
+                            section.classList.remove("d-none");
+                            cart.classList.add("disable-click");
+                        }
+                    });
+                    renderCheckout();
+                }
             }
 
             if (kurangQtyBtn) {
@@ -277,10 +288,34 @@ document.addEventListener("DOMContentLoaded", function () {
                     updateTotalPrice(qtySpan);
                     updateGrandTotal()
                 } else {
-                    // Qty == 1, hapus checkout-item
                     const checkoutItem = kurangQtyBtn.closest(".checkout-item");
+                    const productName = checkoutItem.querySelector("h5").textContent;
+                    let productIdToDelete = null;
+                    for (const [id, cartData] of Object.entries(cartItemsMap)) {
+                        const name = cartData.element.querySelector("h3").textContent;
+                        if (name === productName) {
+                            productIdToDelete = id;
+                            break;
+                        }
+                    }
+
+                    if (productIdToDelete) {
+                        const cartItemElement = cartItemsMap[productIdToDelete].element;
+                        cartItemElement.remove();
+                        delete cartItemsMap[productIdToDelete];
+                        updateCartNotif();
+                        const checkoutItemContainer = document.querySelector(".checkout-items");
+                        checkoutItemContainer.innerHTML = "";
+                        if (Object.keys(cartItemsMap).length === 0) {
+                            const emptyMessage = document.createElement("div");
+                            emptyMessage.classList.add("empty-message");
+                            emptyMessage.innerHTML = "<span>Keranjang Kosong!</span><p>Silakan pilih barang terlebih dahulu.</p>";
+                            checkoutItemContainer.appendChild(emptyMessage);
+                        }
+                    }
+
                     checkoutItem.remove();
-                    updateGrandTotal()
+                    updateGrandTotal();
                 }
             }
 
@@ -297,8 +332,34 @@ document.addEventListener("DOMContentLoaded", function () {
             if (hapusItemBtn) {
                 e.preventDefault();
                 const checkoutItem = hapusItemBtn.closest(".checkout-item");
+                const productName = checkoutItem.querySelector("h5").textContent;
+                let productIdToDelete = null;
+                for (const [id, cartData] of Object.entries(cartItemsMap)) {
+                    const name = cartData.element.querySelector("h3").textContent;
+                    if (name === productName) {
+                        productIdToDelete = id;
+                        break;
+                    }
+                }
+            
+                if (productIdToDelete) {
+                    const cartItemElement = cartItemsMap[productIdToDelete].element;
+                    cartItemElement.remove();
+                    delete cartItemsMap[productIdToDelete];
+                    updateCartNotif();
+
+                    const checkoutItemContainer = document.querySelector(".checkout-items");
+                    checkoutItemContainer.innerHTML = "";
+                    if (Object.keys(cartItemsMap).length === 0) {
+                        const emptyMessage = document.createElement("div");
+                        emptyMessage.classList.add("empty-message");
+                        emptyMessage.innerHTML = "<span>Keranjang Kosong!</span><p>Silakan pilih barang terlebih dahulu.</p>";
+                        checkoutItemContainer.appendChild(emptyMessage);
+                    }
+                }
+            
                 checkoutItem.remove();
-                updateGrandTotal()
+                updateGrandTotal();
             }
         });
 
@@ -454,6 +515,7 @@ function showLogin () {
             checkoutContainer.classList.add("d-none");
         }
     })
+    cart.classList.remove("disable-click");
 }
 
 // show all section
@@ -479,6 +541,7 @@ function showAllSection() {
     if (!checkoutContainer.classList.contains("d-none")) {
         checkoutContainer.classList.add("d-none");
     }
+    cart.classList.remove("disable-click");
 }
 
 // show daftar 
@@ -495,6 +558,7 @@ function showDaftar() {
             form.reset();
         };
     })
+    cart.classList.remove("disable-click");
 }
 
 // show password eye

@@ -929,6 +929,11 @@ footer .credit a {
     height: 32rem;
 }
 
+.disable-click {
+    pointer-events: none;
+    opacity: 1;
+}
+
 .cart-item {
   display: flex;
   align-items: center;
@@ -1139,6 +1144,53 @@ footer .credit a {
 .item-qty .btn i:hover, .item-qty .btn:hover, .payment-methods .btn:hover, .item-qty a:hover{
     color: rgb(212, 175, 55);
     border-color: rgb(212, 175, 55);
+}
+
+/* user */
+.card-user {
+    max-height: 100vh;
+}
+
+.card-pengguna {
+    margin-top: 160px;
+}
+
+.step-wrapper {
+    position: relative;
+    padding: 40px 0;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+    width: 33.33%;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 2px solid green;
+    border-radius: 50%;
+    background-color: white;
+    color: green;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.step.active .icon {
+    /* background-color: green; */
+    color: white;
+}
+
+.progress-line {
+    position: absolute;
+    top: 60px;
+    left: 18%;
+    width: 65%;
+    height: 4px;
+    background-color: green;
+    z-index: 0;
 }
 
 
