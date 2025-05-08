@@ -777,6 +777,7 @@ footer .credit a {
     text-align: right;
     font-size: 14px;
     margin-top: 0;
+    padding-top: 0;
 }
 
 .remember-forgot a {
@@ -810,6 +811,23 @@ footer .credit a {
 
 .daftar a:hover, .remember-forgot a:hover, .login a:hover {
     color: #fff;
+}
+
+#repass-error {
+    display: none;
+    color: rgb(212, 175, 55);
+    margin-top: 1px;
+    text-align: end;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.login-container .note-password, .daftar-container .note-password {
+    font-size: 10px; 
+    margin-bottom: 0;
+    padding-bottom: 0; 
+    text-align: left; 
+    color: rgb(212, 175, 55);
 }
 
 /* modal Box */
@@ -1149,10 +1167,20 @@ footer .credit a {
 /* user */
 .card-user {
     max-height: 100vh;
+    color: #fff;
+}
+
+.card-user p {
+    color: #fff;
 }
 
 .card-pengguna {
     margin-top: 160px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
 }
 
 .step-wrapper {
@@ -1170,29 +1198,41 @@ footer .credit a {
     width: 50px;
     height: 50px;
     line-height: 50px;
-    border: 2px solid green;
+    border: 2px solid rgb(212, 175, 55);
     border-radius: 50%;
     background-color: white;
-    color: green;
+    color: rgb(212, 175, 55);
     font-size: 20px;
     margin: 0 auto;
 }
 
 .step.active .icon {
-    /* background-color: green; */
+    background-color: rgb(212, 175, 55);
     color: white;
+}
+
+.img-produk {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+  
+.card-price {
+    color: #fff;
+    font-weight: bold;
 }
 
 .progress-line {
     position: absolute;
-    top: 60px;
+    top: 63px;
     left: 18%;
     width: 65%;
     height: 4px;
-    background-color: green;
+    background-color: rgb(212, 175, 55);
     z-index: 0;
 }
-
+  
 
 /* animasi section  */
 .hero h1, 

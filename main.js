@@ -12,7 +12,14 @@ const form = document.querySelector(".daftar-container form, .login-container fo
 const btnProduct = document.querySelector('.btn-lihat-product');
 const cart = document.querySelector(".cart")
 const cartShopping = document.querySelector(".shopping-cart")
-const checkoutContainer = document.querySelector(".checkout-container")
+const checkoutContainer = document.querySelector(".checkout-container");
+const cardUser = document.querySelector(".card-user");
+const hero = document.querySelector(".hero");
+const containerTeks = document.querySelector(".container-teks");
+const contact = document.querySelector(".contact");
+const about = document.querySelector(".about");
+const aboutContainer = document.querySelector(".about-container");
+const userProfileContainer = document.querySelector(".card-user");
 
 
 // ANIMASI SCROLL   
@@ -98,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // show modal Box
         function showById(id) {
             itemDetailModal.classList.add("active");
-            // console.log("Clicked ID:", id);
             const product = data.find(item => item.id == id);
             if(product) {
                 itemDetailProducts.classList.remove("d-none");
@@ -167,13 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateCartNotif();
             });
             btnKurang.addEventListener("click", () => {
-                // if(cartItemsMap[product.id].jumlah > 1) {
-                //     cartItemsMap[product.id].jumlah--;
-                //     jumlahCart.textContent = cartItemsMap[product.id].jumlah;
-                // } else {
-                //     cartItem.remove();
-                //     delete cartItemsMap[product.id];
-                // }
                 if (cartItemsMap[product.id].jumlah <= 1) {
                     cartItem.remove();
                     delete cartItemsMap[product.id];
@@ -192,26 +191,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const totalJenisItem = Object.keys(cartItemsMap).length;
             cartNotif.textContent = totalJenisItem;
         }
-
-        document.addEventListener("click", function (e) {
-            const btn = e.target.closest(".item-detail-button");
-            if (btn) {
-                e.preventDefault();
-                const id = btn.getAttribute("data-id");
-                showById(id);
-            }
-
-            const cartBtn = e.target.closest(".add-to-cart");
-            if (cartBtn) {
-                e.preventDefault();
-                const id = cartBtn.getAttribute("data-id");
-                const product = data.find(item => item.id == id);
-                if (product) {
-                    renderCartShopping(product);
-                    itemDetailModal.classList.remove("active");
-                }
-            }
-        });
 
         renderProducts(displayedItems);
 
@@ -244,7 +223,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (cartBtn) {
-                e.preventDefault();
+                const navUser = document.getElementById("nav-user");
+
+                if (!navUser) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Login Dulu!',
+                        text: 'Silakan login untuk menambahkan produk ke keranjang.',
+                        confirmButtonText: 'Oke'
+                    });
+                    return;
+                }
+        
                 const id = cartBtn.getAttribute("data-id");
                 const product = data.find(item => item.id == id);
                 if (product) {
@@ -268,7 +258,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     sections.forEach(section => {
                         if (!section.classList.contains("checkout-container")) {
                             section.classList.add("d-none");
-                            footer.classList.add("d-none")
+                            footer.classList.add("d-none");
+                            userProfileContainer.classList.add("d-none");
                         } else {
                             section.classList.remove("d-none");
                             cart.classList.add("disable-click");
@@ -304,18 +295,28 @@ document.addEventListener("DOMContentLoaded", function () {
                         cartItemElement.remove();
                         delete cartItemsMap[productIdToDelete];
                         updateCartNotif();
-                        const checkoutItemContainer = document.querySelector(".checkout-items");
-                        checkoutItemContainer.innerHTML = "";
-                        if (Object.keys(cartItemsMap).length === 0) {
-                            const emptyMessage = document.createElement("div");
-                            emptyMessage.classList.add("empty-message");
-                            emptyMessage.innerHTML = "<span>Keranjang Kosong!</span><p>Silakan pilih barang terlebih dahulu.</p>";
-                            checkoutItemContainer.appendChild(emptyMessage);
-                        }
+                        // const checkoutItemContainer = document.querySelector(".checkout-items");
+                        // checkoutItemContainer.innerHTML = "";
+                        // if (Object.keys(cartItemsMap).length === 0) {
+                        //     const emptyMessage = document.createElement("div");
+                        //     emptyMessage.classList.add("empty-message");
+                        //     emptyMessage.innerHTML = "<span>Keranjang Kosong!</span><p>Silakan pilih barang terlebih dahulu.</p>";
+                        //     checkoutItemContainer.appendChild(emptyMessage);
+                        // }
                     }
 
                     checkoutItem.remove();
+                    renderCheckout();
                     updateGrandTotal();
+
+                    const checkoutItemContainer = document.querySelector(".checkout-items");
+                    if (Object.keys(cartItemsMap).length === 0) {
+                        checkoutItemContainer.innerHTML = "";
+                        const emptyMessage = document.createElement("div");
+                        emptyMessage.classList.add("empty-message");
+                        emptyMessage.innerHTML = "<span>Keranjang Kosong!</span><p>Silakan pilih barang terlebih dahulu.</p>";
+                        checkoutItemContainer.appendChild(emptyMessage);
+                    }
                 }
             }
 
@@ -348,22 +349,32 @@ document.addEventListener("DOMContentLoaded", function () {
                     delete cartItemsMap[productIdToDelete];
                     updateCartNotif();
 
-                    const checkoutItemContainer = document.querySelector(".checkout-items");
-                    checkoutItemContainer.innerHTML = "";
+                    // const checkoutItemContainer = document.querySelector(".checkout-items");
+                    // checkoutItemContainer.innerHTML = "";
+                    // if (Object.keys(cartItemsMap).length === 0) {
+                    //     const emptyMessage = document.createElement("div");
+                    //     emptyMessage.classList.add("empty-message");
+                    //     emptyMessage.innerHTML = "<span>Keranjang Kosong!</span><p>Silakan pilih barang terlebih dahulu.</p>";
+                    //     checkoutItemContainer.appendChild(emptyMessage);
+                    // }
+                }
+            
+                checkoutItem.remove();
+                renderCheckout();
+                updateGrandTotal();
+
+                const checkoutItemContainer = document.querySelector(".checkout-items");
                     if (Object.keys(cartItemsMap).length === 0) {
+                        checkoutItemContainer.innerHTML = "";
                         const emptyMessage = document.createElement("div");
                         emptyMessage.classList.add("empty-message");
                         emptyMessage.innerHTML = "<span>Keranjang Kosong!</span><p>Silakan pilih barang terlebih dahulu.</p>";
                         checkoutItemContainer.appendChild(emptyMessage);
                     }
-                }
-            
-                checkoutItem.remove();
-                updateGrandTotal();
             }
         });
 
-        function renderCheckout() {
+        function renderCheckout(e) {
             const checkoutItemContainer = document.querySelector(".checkout-items");
             checkoutItemContainer.innerHTML = "";
 
@@ -502,6 +513,7 @@ function showLogin () {
             section.classList.add("d-none");
             footer.classList.add("d-none");
             sectionStore.style.marginTop = "";
+            cardUser.classList.add("d-none")
         } else {
             section.classList.remove("d-none");
             body.classList.add("form-background");
@@ -510,9 +522,11 @@ function showLogin () {
             containerSearch.classList.add("d-none");
             btnProduct.classList.remove("d-none");
             renderInitialProducts(8);
+            cardUser.classList.add("d-none")
         } 
         if (!checkoutContainer.classList.contains("d-none")) {
             checkoutContainer.classList.add("d-none");
+            cardUser.classList.add("d-none")
         }
     })
     cart.classList.remove("disable-click");
@@ -524,6 +538,7 @@ function showAllSection() {
         if (section.classList.contains("login-container") || section.classList.contains("daftar-container") || section.classList.contains("modal-box")) {
             section.classList.add("d-none");
             footer.classList.remove("d-none");
+            cardUser.classList.add("d-none")
         } else {
             section.classList.remove("d-none");
             body.classList.remove("form-background");
@@ -537,9 +552,11 @@ function showAllSection() {
         sectionStore.style.marginTop = "";
         btnProduct.classList.remove("d-none");
         renderInitialProducts(8);
+        cardUser.classList.add("d-none")
     } 
     if (!checkoutContainer.classList.contains("d-none")) {
         checkoutContainer.classList.add("d-none");
+        cardUser.classList.add("d-none")
     }
     cart.classList.remove("disable-click");
 }
@@ -599,4 +616,120 @@ document.addEventListener("click", function(e) {
         cartShopping.classList.add("d-none");
     }
 })
-  
+
+// input data local storage 
+document.querySelector(".daftar-button").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    let daftarUser = document.querySelector("#daftar-username");
+    let daftarEmail = document.querySelector("#daftar-email");
+    let daftarPassword = document.querySelector("#daftar-password");
+    let daftarRePassword = document.querySelector("#re-password");
+    let repassError = document.querySelector("#repass-error");
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{7,}$/;
+
+    repassError.style.display = "none";
+
+    if (!daftarUser.value || !daftarEmail.value || !daftarPassword.value || !daftarRePassword.value) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Silahkan Lengkapi',
+            confirmButtonText: 'Oke'
+        });
+        return;
+    }
+
+    if (daftarPassword.value !== daftarRePassword.value) {
+        repassError.style.display = "block";
+        return;
+    }
+
+    if (!passwordRegex.test(daftarPassword.value)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Password Lemah',
+            text: 'Password harus minimal 7 karakter, ada huruf besar, dan simbol.',
+            confirmButtonText: 'Oke'
+        });
+        return;
+    }
+
+    localStorage.setItem("username", daftarUser.value);
+    localStorage.setItem("email", daftarEmail.value);
+    localStorage.setItem("password", daftarPassword.value);
+    localStorage.setItem("role", "member");
+
+    Swal.fire({
+        title: "Selamat",
+        text: "Akun Anda Berhasil Didaftarkan!",
+        icon: "success",
+        confirmButtonText: "Pergi ke Login",
+    }).then(() => {
+        const daftarForm = document.querySelector(".daftar-container form");
+        daftarForm.reset();
+        showLogin();
+    });
+});
+
+
+// let isLoggedIn = false; 
+function loginUser () {
+    let loginUsername = document.querySelector("#username").value.trim();
+    let loginPassword = document.querySelector("#password").value.trim();
+
+    let storedUsername = localStorage.getItem("username");
+    let storedEmail = localStorage.getItem("email");
+    let storedPassword = localStorage.getItem("password");
+
+    if (
+        (loginUsername === storedUsername || loginUsername === storedEmail) &&
+        loginPassword === storedPassword
+    ) {
+        localStorage.setItem("isLoggedIn", "true");
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil Login!',
+            confirmButtonText: 'Lanjut'
+        }).then(() => {
+            document.querySelector(".login-container").classList.add("d-none");
+            document.querySelector(".card-user").classList.remove("d-none");
+
+            const navLogin = document.getElementById("nav-login");
+            if (navLogin) {
+                navLogin.outerHTML = `
+                    <a class="nav-link" id="nav-user">
+                        <img src="img/kopi1.jpg" alt="user" class="rounded-circle" style="width: 30px; height: 30px;">
+                    </a>
+                `;
+            }
+        });
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Login Gagal',
+            text: 'Username/email atau password salah!',
+            confirmButtonText: 'Coba Lagi'
+        });
+    }
+};
+
+document.addEventListener("click", function (e) {
+    const navUser = e.target.closest("#nav-user");
+    if (navUser) {
+        e.preventDefault();
+        // const userProfileContainer = document.querySelector(".card-user");
+            if (userProfileContainer) {
+                userProfileContainer.classList.remove("d-none");
+                sectionStore.classList.add("d-none");
+                footer.classList.add("d-none");
+                hero.classList.add("d-none");
+                containerTeks.classList.add("d-none");
+                contact.classList.add("d-none");
+                about.classList.add("d-none");
+                aboutContainer.classList.add("d-none");
+                checkoutContainer.classList.add("d-none");
+                cart.classList.remove("disable-click");
+            }
+    }
+});
